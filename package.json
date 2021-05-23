@@ -18,7 +18,7 @@
     "url": "https://github.com/baoloabs/jibe/issues"
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run release"
+    "pre-commit": "npm run release && git add ."
   },
   "homepage": "https://github.com/baoloabs/jibe#readme",
   "dependencies": {

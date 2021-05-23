@@ -5,6 +5,8 @@ const destinationOrganizationName = core.getInput('destination-organization-name
 const destinationRepositoryName = core.getInput('destination-repository-name')
 const targetBranch = core.getInput('target-branch')
 
+console.log(targetBranch)
+
 try {
   main()
 } catch (error) {

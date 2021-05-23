@@ -5,9 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      - uses: actions/checkout@v2
+      - uses: ./
       - name: Hello world action step
         id: hello
-        uses: ./
         with:
           destination-repository-name: 'debut-src'
           target-branch: 'master'

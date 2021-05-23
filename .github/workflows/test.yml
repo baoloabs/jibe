@@ -6,6 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+      with:
+        destination-repository-name: 'debut-src'
+        target-branch: 'master'
+        BAO_API_TOKEN: ${{ secrets.BAO_API_TOKEN }}
 
 #jobs:
 #  bao_jibe:

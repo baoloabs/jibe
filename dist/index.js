@@ -6149,7 +6149,6 @@ const destinationRepositoryName = core.getInput('destination-repository-name')
 const targetBranch = core.getInput('target-branch')
 
 console.log(destinationRepositoryName, targetBranch)
-console.log(process.env)
 
 try {
   main()
@@ -6160,7 +6159,7 @@ try {
 async function main () {
   const octokit = github.getOctokit(process.env.BAO_API_TOKEN)
 
-  console.log(await octokit.repos.listBranches({
+  console.log(await octokit.rest.repos.listBranches({
     owner: destinationOrganizationName,
     repo: destinationRepositoryName,
   }))

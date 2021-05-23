@@ -1,10 +1,13 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'BAO Jibe'
+description: 'Sync shop commits from 1 repo to another'
 inputs:
-  who-to-greet: # id of input
-    description: 'Who to greet'
+  destination-repository-name:
+    description: 'The repository we want to sync changes to'
     required: true
-    default: 'World'
+  target-branch:
+    description: 'The branch we want to get changes on'
+    required: true
+    default: 'master'
 outputs:
   time: # id of output
     description: 'The time we greeted you'

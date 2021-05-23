@@ -1,12 +1,11 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 
-const BAO_API_TOKEN = core.getInput('BAO_API_TOKEN')
 const destinationRepositoryName = core.getInput('destination-repository-name')
 const targetBranch = core.getInput('target-branch')
 
 try {
-  const octokit = github.getOctokit(BAO_API_TOKEN)
+  const octokit = github.getOctokit(process.env.BAO_API_TOKEN)
 
   console.log(octokit, destinationRepositoryName, targetBranch)
 

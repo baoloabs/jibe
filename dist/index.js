@@ -6144,6 +6144,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186)
 const github = __nccwpck_require__(438)
 
+const destinationOrganizationName = core.getInput('destination-organization-name')
 const destinationRepositoryName = core.getInput('destination-repository-name')
 const targetBranch = core.getInput('target-branch')
 
@@ -6151,9 +6152,18 @@ console.log(destinationRepositoryName, targetBranch)
 console.log(process.env)
 
 try {
+  main()
+} catch (error) {
+  core.setFailed(error.message)
+}
+
+async function main () {
   const octokit = github.getOctokit(process.env.BAO_API_TOKEN)
 
-  console.log(octokit)
+  console.log(await octokit.repos.listBranches({
+    owner: destinationOrganizationName,
+    repo: destinationRepositoryName,
+  }))
 
   // `who-to-greet` input defined in action metadata file
   console.log(`Hello ${destinationRepositoryName}!`)
@@ -6164,8 +6174,6 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`)
-} catch (error) {
-  core.setFailed(error.message)
 }
 
 })();

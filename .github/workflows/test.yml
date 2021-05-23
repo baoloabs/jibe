@@ -9,8 +9,8 @@ jobs:
         with:
           destination-repository-name: 'debut-src'
           target-branch: 'master'
+        env:
           BAO_API_TOKEN: ${{ secrets.BAO_API_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 #jobs:
 #  bao_jibe:

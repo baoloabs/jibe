@@ -8,6 +8,9 @@ inputs:
     description: 'The branch we want to get changes on'
     required: true
     default: 'master'
+  BAO_API_TOKEN:
+    description: 'The branch we want to get changes on'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'

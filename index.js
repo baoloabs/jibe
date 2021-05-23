@@ -4,10 +4,13 @@ const github = require('@actions/github')
 const destinationRepositoryName = core.getInput('destination-repository-name')
 const targetBranch = core.getInput('target-branch')
 
+console.log(destinationRepositoryName, targetBranch)
+console.log(process.env)
+
 try {
   const octokit = github.getOctokit(process.env.BAO_API_TOKEN)
 
-  console.log(octokit, destinationRepositoryName, targetBranch)
+  console.log(octokit)
 
   // `who-to-greet` input defined in action metadata file
   console.log(`Hello ${destinationRepositoryName}!`)

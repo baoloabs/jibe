@@ -6144,14 +6144,16 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(186)
 const github = __nccwpck_require__(438)
 
-const BAO_API_TOKEN = core.getInput('BAO_API_TOKEN')
 const destinationRepositoryName = core.getInput('destination-repository-name')
 const targetBranch = core.getInput('target-branch')
 
-try {
-  const octokit = github.getOctokit(BAO_API_TOKEN)
+console.log(destinationRepositoryName, targetBranch)
+console.log(process.env)
 
-  console.log(octokit, destinationRepositoryName, targetBranch)
+try {
+  const octokit = github.getOctokit(process.env.BAO_API_TOKEN)
+
+  console.log(octokit)
 
   // `who-to-greet` input defined in action metadata file
   console.log(`Hello ${destinationRepositoryName}!`)
